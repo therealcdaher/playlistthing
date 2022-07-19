@@ -5,11 +5,12 @@ The goal of this application is to build an automated way to push all of your pl
 ## Basic spec/description
 Continuously-running application (more of a service), meant to run on the server where your media is hosted. The user will provide the following information through a web GUI:  
 1. Playlist source folder
-2. Playlist destination top folder
-3. Music source folder
-4. Music destination folder
-5. The path to the music destination folder as it is on the device(s) that the playlists will be converted for
-6. The desired time interval for content rescans 
+2. Playlist source file path, if different from what it is on the media server (for example, if you create your playlists on a desktop machine and access the files via SMB share)
+3. Playlist destination top folder
+4. Music source folder
+5. Music destination folder
+6. The path to the music destination folder as it is on the device(s) that the playlists will be converted for
+7. The desired time interval for content rescans 
 
 The application will then:  
 1. Scan the source playlist folder per the interval set by the user
