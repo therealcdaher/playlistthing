@@ -1,6 +1,16 @@
 # playlistthing, a thing for playlists  
 The goal of this application is to build an automated way to push all of your playlists to all of your devices. I'm sure other stuff exists for this purpose, it's more of an exercise/for fun. It's meant to piggyback off of Syncthing to move the actual files to your actual devices, at least for now, although that's not strictly necessary if you're serving your music off of a central SMB server or something like that. 
 
+
+It actually works now, but it's still pretty crap. You'll need to manually create a config file (data.json) in the directory where the program lives, and give it four values:
+
+1. playlistsource - the directory to watch for new playlists, and read from
+2. playlistdest - the directory where converted playlists will be stored
+3. musicsource - your main music repository, where the original playlists look
+4. musicdest - the destination directory for your music
+
+With all that in place, just run scan.py and leave it be. It will watch the playlist source directory for new playlists, and convert them to the new structure as well as copying over your music files. Not very thoroughly tested.
+
 ---
 ## Basic spec/description
 Continuously-running application (more of a service), meant to run on the server where your media is hosted. The user will provide the following information through a web GUI:  
@@ -25,6 +35,3 @@ The application will then:
 
 You should then either use something like Syncthing to sync the desired destination folders over to your device(s), or simply mount them as network shares. The music destination folder can be universal, but each device will need its own playlist folder, otherwise this would need a companion application on the intended device to re-convert the playlist to use the appropriate file structure.  
 
-Backend will be in Python, haven't decided on the frontend yet. 
-
-Haven't even started development yet, but I probably will eventually. Just want to give myself something clear to work towards for now.  
